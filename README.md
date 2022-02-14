@@ -1,2 +1,3 @@
 # vanilla-js-projects
-Some vanilla JS projects I made
+
+These are simple simple/intermediate level projects I made using JavaScript or jQuery.

@@ -3,6 +3,7 @@ let gamePattern = [];
 let userClickedPattern = [];
 var randomChosenColour, randomNumber, level = 0;
 
+//game start on keypress
 $(document).keypress(function() {
     if(level === 0) {
         $('h1').text("Level "+level);
@@ -22,6 +23,7 @@ function animatePress(currentColour) {
     }, 100);
 }
 
+//adds to gamePattern as long as user presses the correct patterns
 function nextSequence(){
     level++;
     userClickedPattern = [];//clear this every time user gets correct pattern
@@ -34,6 +36,7 @@ function nextSequence(){
     playSound(`./sounds/${randomChosenColour}.mp3`);
 }
 
+//simply checks if user's and game's patterns are same or not
 function check(curLevel){
     for(let i=0;i<curLevel;i++)
     {
@@ -45,6 +48,7 @@ function check(curLevel){
 
 $(`#${randomChosenColour}`).fadeOut(200).fadeIn(200);
 
+//when user click a button
 $('.btn').click(function() {
     var userChosenColour = $(this).attr('id');
     userClickedPattern.push(userChosenColour);
@@ -73,8 +77,8 @@ $('.btn').click(function() {
         userClickedPattern = [];
     }
 
-    console.log(gamePattern);
-    console.log(userClickedPattern);
+    // console.log(gamePattern);
+    // console.log(userClickedPattern);
     animatePress(userChosenColour);
     playSound(`./sounds/${userChosenColour}.mp3`);
 });
